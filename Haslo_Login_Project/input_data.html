@@ -1,46 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style-haslo-login-bd.css">
-    <title>Login</title>
+    <title>login and Password</title>
+    <link rel="stylesheet" type="text/css" href="style-haslo-login.bd.css">
 </head>
-
 <body>
-    <section>
-        <span></span>
+  <section>
+    <span></span>
 
-        <!-- Your existing HTML content -->
-
-        <div class="signin">
-            <div class="content">
-                <h2>Sign In</h2>
-                <form onsubmit="redirectToDisplayPage(); return false;">
-                    <div class="form">
-                        <div class="inputBox">
-                            <input type="text" id="login" name="login" required>
-                            <i>Login</i>
-                        </div>
-                        <div class="inputBox">
-                            <input type="password" id="password" name="password" required>
-                            <i>Password</i>
-                        </div>
-                        <div class="inputBox">
-                            <input type="submit" value="Login">
-                        </div>
+    <div class="signin">
+        <div class="content">
+            <h2>Sign in</h2>
+            <form onsubmit="return checkPassword();">
+                <div class="form">
+                    <div class="inputBox">
+                        <input type="text" id="login" name="login" required>
+                        <i>Login</i>
                     </div>
-                </form>
-            </div>
+                    <div class="inputBox">
+                        <input type="password" id="password" name="password" required>
+                        <i>Password</i>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" value="Login">
+                    </div>
+                </div>
+            </form>
+            <p class="error" id="errorText"></p> <!-- For Error Input -->
         </div>
-    </section>
+    </div>
+</section>
 
-    <script>
-        function redirectToDisplayPage() {
+  <script>
+
+        function checkPassword() {
             const login = document.getElementById("login").value;
             const password = document.getElementById("password").value;
-            const redirectUrl = `display_data.html?login=${login}&password=${password}`;
-            window.location.href = redirectUrl;
+            const errorText = document.getElementById("errorText");
+            
+            // Analyze the password by category
+            const categories = {
+                hasLowerCase: /[a-z]/.test(password),
+                hasUpperCase: /[A-Z]/.test(password),
+                hasDigits: /[0-9]/.test(password),
+                hasSpecialChars: /[^a-zA-Z0-9]/.test(password),
+                isLengthValid: password.length >= 8 && password.length <= 20 // Example length range
+            };
+            
+            // Check the categories and display an error message if it does not match
+            let errorMessages = [];
+
+            if (!categories.hasLowerCase) {
+                errorMessages.push("Add small letters to the password");
+            }
+            if (!categories.hasUpperCase) {
+                errorMessages.push("Add capital letters to the password</p>");
+            }
+            if (!categories.hasDigits) {
+                errorMessages.push("Add numbers to the password");
+            }
+            if (!categories.hasSpecialChars) {
+                errorMessages.push("Add special characters to the password");
+            }
+            if (!categories.isLengthValid) {
+                errorMessages.push("The password must be between 8 and 20 characters");
+            }
+
+            if (errorMessages.length > 0) {
+                errorText.textContent = "Error: " + errorMessages.join(" ");
+                errorText.style.color = "red";
+                return false; // Stop form submition
+            } else {
+                // If all categories pass, redirect to display_data.html
+                const redirectUrl = `display_data.html?login=${login}&password=${password}`;
+                window.location.href = redirectUrl;
+                return false; // Stop form submission
+            }
         }
     </script>
 </body>
