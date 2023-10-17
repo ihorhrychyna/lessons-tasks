@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h1>Your Login & Password:</h1>
+    <p>Login: <span id="login"></span></p>
+    <p>Password: <span id="password"></span></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const login = urlParams.get("login");
+            const password = urlParams.get("password");
+            document.getElementById("login").textContent = login;
+            document.getElementById("password").textContent = password;
+        });
+    </script>
+</body>
+</html>
