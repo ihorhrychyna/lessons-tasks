@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egzamin ABC</title>
+    <style>
+                body {
+            font-family: Arial, sans-serif;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="exam-container">
+        <h1>Test na znanie bazy programowania</h1>
+        <h2>zaznacz wszystko!!!</h2>
+        <img src="https://media.giphy.com/media/n1dFDLwXu4Qkwy7OJ0/giphy.gif" alt="Opis obrazka" width="300" height="300">
+
+        <form id="exam-form" method="post" action="check_answers.php"> <!-- Dodano atrybuty method i action -->
+            <!-- Pytania i odpowiedzi -->
+            <div class="question">
+                <p>1. Co to jest atak DDoS?</p>
+                <input type="radio" name="q1" value="a"> a. Oprogramowanie do tworzenia baz danych<br>
+                <input type="radio" name="q1" value="b"> b. Atak na usługi internetowe<br>
+                <input type="radio" name="q1" value="c"> c. Przetwarzanie danych graficznych<br>
+            </div>
+
+            <div class="question">
+                <p>2. Co to jest phishing?</p>
+                <input type="radio" name="q2" value="a"> a. Oprogramowanie do tworzenia baz danych<br>
+                <input type="radio" name="q2" value="b"> b. Wyłudzanie informacji, często poprzez podszywanie się pod zaufane źródło<br>
+                <input type="radio" name="q2" value="c"> c. System operacyjny<br>
+            </div>
+
+            <div class="question">
+                <p>3. Co to jest system backdoor?</p>
+                <input type="radio" name="q3" value="a"> a. System operacyjny z otwartym kodem źródłowym<br>
+                <input type="radio" name="q3" value="b"> b. Ukryte wejście do systemu, które pozwala na późniejszy dostęp<br>
+                <input type="radio" name="q3" value="c"> c. System komunikacji między komputerami<br>
+            </div>
+
+            <div class="question">
+                <p>4. Co to jest malware?</p>
+                <input type="radio" name="q4" value="a"> a. Złośliwe oprogramowanie<br>
+                <input type="radio" name="q4" value="b"> b. Krótki film animowany<br>
+                <input type="radio" name="q4" value="c"> c. Szybki internetowy router<br>
+            </div>
+
+            <div class="question">
+                <p>5. Co to jest cracking?</p>
+                <input type="radio" name="q5" value="a"> a. Przejęcie kontroli nad danym użytkownikiem lub systemem komputerowym<br>
+                <input type="radio" name="q5" value="b"> b. Legalne łamanie zabezpieczeń systemu<br>
+                <input type="radio" name="q5" value="c"> c. Kraken - gigantyczne morskie stworzenie<br>
+            </div>
+
+            <div class="question">
+                <p>6. Co to jest cyber hijacking?</p>
+                <input type="radio" name="q6" value="a"> a. Przejście na emeryturę<br>
+                <input type="radio" name="q6" value="b"> b. Przejęcie kontroli nad danym użytkownikiem lub systemem komputerowym<br>
+                <input type="radio" name="q6" value="c"> c. Inwazja kosmitów<br>
+            </div>
+
+            <div class="question">
+                <p>7. Co to jest sim swapping?</p>
+                <input type="radio" name="q7" value="a"> a. Przejęcie numeru telefonu ofiary w celu przejęcia konta<br>
+                <input type="radio" name="q7" value="b"> b. Wymiana kart SIM między użytkownikami<br>
+                <input type="radio" name="q7" value="c"> c. Symulowanie ślubu<br>
+            </div>
+
+            <div class="question">
+                <p>8. Co to jest doxing?</p>
+                <input type="radio" name="q8" value="a"> a. Publiczne ujawnianie prywatnych informacji o danej osobie<br>
+                <input type="radio" name="q8" value="b"> b. Nowoczesny sposób gotowania<br>
+                <input type="radio" name="q8" value="c"> c. Technika rzeźbienia w drewnie<br>
+            </div>
+
+            <div class="question">
+                <p>9. Co to jest cyber spying?</p>
+                <input type="radio" name="q9" value="a"> a. Wyzywanie ludzi w grach<br>
+                <input type="radio" name="q9" value="b"> b. Nielegalne pozyskiwanie poufnych informacji<br>
+                <input type="radio" name="q9" value="c"> c. Automatyczne strzelanie w grach<br>
+            </div>
+
+            <div class="question">
+                <p>10. Co to jest Wi-Fi eavesdropping?</p>
+                <input type="radio" name="q10" value="a"> a. Robienie zakłóceń na kanałach radiowych<br>
+                <input type="radio" name="q10" value="b"> b. Przechwytywanie nieautoryzowanego dostępu do sieci Wi-Fi<br>
+                <input type="radio" name="q10" value="c"> c. Masowe wysyłanie zdjęć airdroppem<br>
+            </div>
+
+            <!-- Przycisk do wysłania formularza -->
+            <input type="submit" value="Sprawdź odpowiedzi, powodzenia:3">
+        </form>
+
+        <!-- Miejsce na wyświetlenie wyniku -->
+        <div id="result-container"></div>
+    </div>
+</body>
+</html>
